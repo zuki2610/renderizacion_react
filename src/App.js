@@ -13,8 +13,8 @@ function App() {
   <main>
     <Routes>
         <Route path='/renderizacion_react/productos' element={<Productos />} />
-        <Route path='/renderizacion_react/' element={<Password />} />
-        <Route path='/renderizacion_react/home' element={<Home />} />
+        <Route path='/renderizacion_react/login' element={<Password />} />
+        <Route path='/renderizacion_react/' element={<Home />} />
     </Routes>
   </main>
 </BrowserRouter>
