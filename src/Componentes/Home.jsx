@@ -1,10 +1,9 @@
 import React from 'react';
-import '../App.css';
+import '../index.css';
 import Header from './Header';
-import Image from 'react-bootstrap/Image';
 import Menu from './Menu';
 import Footer from './Footer';
-
+import { Image } from 'react-bootstrap';
 
 
 const Home = () => {
