@@ -9,8 +9,8 @@ import { useState } from "react";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import Button from "react-bootstrap/Button";
 import { contenido } from "../Data/Productos";
-import Form from 'react-bootstrap/Form';
-import Badge from 'react-bootstrap/Badge';
+import Form from "react-bootstrap/Form";
+import Badge from "react-bootstrap/Badge";
 const Menu = (props) => {
   const { isLogin } = props;
   const [productos, setProductos] = useState(contenido);
@@ -26,25 +26,31 @@ const Menu = (props) => {
     const resultado = respaldo.filter((item) => {
       return item.heroe.toLowerCase() === buscador.toLowerCase();
     });
-  
+
     console.log(resultado);
     console.log(respaldo);
     setProductos(resultado);
-  }
+  };
   const agregarProducto = (e) => {
     e.preventDefault();
 
-    setProductos([...productos, {
-      id: respaldo.length + 1,
-      juguete,
-      heroe,
-    }]);
+    setProductos([
+      ...productos,
+      {
+        id: respaldo.length + 1,
+        juguete,
+        heroe,
+      },
+    ]);
 
-    setRespaldo([...productos, {
-      id: respaldo.length + 1,
-      juguete,
-      heroe,
-    }]);
+    setRespaldo([
+      ...productos,
+      {
+        id: respaldo.length + 1,
+        juguete,
+        heroe,
+      },
+    ]);
   };
 
   if (isLogin === false) {
@@ -58,10 +64,25 @@ const Menu = (props) => {
         >
           <Modal.Header closeButton className="bg-dark text-light">
             <Modal.Title id="contained-modal-title-vcenter">
-            <Form className="form-title">
-              <i className="bi bi-search me-2 ms-5" ></i><Badge bg="dark" className="me-5 pe-5">Productos Disponibles</Badge>  
-              <Form.Control className="ps-2 ms-5 "size="sm" type="text" placeholder="Busqueda por Nombre"  onChange={(e)=> setBuscador(e.target.value)}/>
-              <Button className="ms-2 "variant="info" onClick={buscarProducto}>Buscar</Button>{' '}
+              <Form className="form-title">
+                <i className="bi bi-search me-2 ms-5"></i>
+                <Badge bg="dark" className="me-5 pe-5">
+                  Productos Disponibles
+                </Badge>
+                <Form.Control
+                  className="ps-2 ms-5 "
+                  size="sm"
+                  type="text"
+                  placeholder="Busqueda por Nombre"
+                  onChange={(e) => setBuscador(e.target.value)}
+                />
+                <Button
+                  className="ms-2 "
+                  variant="info"
+                  onClick={buscarProducto}
+                >
+                  Buscar
+                </Button>{" "}
               </Form>
             </Modal.Title>
           </Modal.Header>
@@ -69,14 +90,33 @@ const Menu = (props) => {
             <h4>Busqueda de Productos</h4>
             <ul>
               {productos.map((item) => (
-                <li key={item.id}>Heroe: {item.heroe}<p>Juguete: {item.juguete}</p></li>
+                <li key={item.id}>
+                  Heroe: {item.heroe}
+                  <p>Juguete: {item.juguete}</p>
+                </li>
               ))}
             </ul>
-            <strong>Si el producto que buscas no esta disponible, agregalo aqui</strong>
+            <strong>
+              Si el producto que buscas no esta disponible, agregalo aqui
+            </strong>
             <Form>
-            <Form.Control  className="mt-2"size="sm" type="text" placeholder="Ingresa el Heroe" onChange={(e)=> setHeroe(e.target.value)} />
-            <Form.Control className="mt-2"size="sm" type="text" placeholder="Ingresa el Juguete" onChange={(e)=> setJuguete (e.target.value)}/>
-            <Button className="mt-2" variant="info" onClick={agregarProducto}>Agregar</Button>{' '}
+              <Form.Control
+                className="mt-2"
+                size="sm"
+                type="text"
+                placeholder="Ingresa el Heroe"
+                onChange={(e) => setHeroe(e.target.value)}
+              />
+              <Form.Control
+                className="mt-2"
+                size="sm"
+                type="text"
+                placeholder="Ingresa el Juguete"
+                onChange={(e) => setJuguete(e.target.value)}
+              />
+              <Button className="mt-2" variant="info" onClick={agregarProducto}>
+                Agregar
+              </Button>{" "}
             </Form>
           </Modal.Body>
           <Modal.Footer>
@@ -117,5 +157,4 @@ const Menu = (props) => {
     );
   }
 };
-
 export default Menu;
